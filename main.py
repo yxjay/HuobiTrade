@@ -53,10 +53,10 @@ def subscribe(ws, tradeStr):
             result = json.loads(result)
             if "tick" in result:
                 _tick = result.get("tick")
-                if "trade.detail" not in tradeStr:
-                    print([result.get("ch"), _tick])
-                else:
+                if "trade.detail" in tradeStr or "data" in _tick:
                     print([result.get("ch"), _tick.get("data")])
+                else:
+                    print([result.get("ch"), _tick])
 
 if __name__ == '__main__':
     while(1):
