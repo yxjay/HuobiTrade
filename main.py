@@ -25,9 +25,9 @@ tradetype = "usdt"
 
 infoType = ["kline", "depth", "trade","detail"]
 
-klineTradeStr = """{"sub": "market.%susdt.kline.1min","id": "id10"}""" % coinList[36]     # from ,to 
-depthTradeStr = """{"sub": "market.%susdt.depth.step0", "id": "id11"}""" % coinList[36]
-tradeTradeStr =  """{"sub": "market.%susdt.trade.detail", "id": "id15"}""" % coinList[36]
+klineTradeStr = """{"sub": "market.%susdt.kline.1min","id": "id10"}""" % coinList[1]     # from ,to 
+depthTradeStr = """{"sub": "market.%susdt.depth.step0", "id": "id11"}""" % coinList[1]
+tradeTradeStr =  """{"sub": "market.%susdt.trade.detail", "id": "id15"}""" % coinList[1]
 
 
 ws = None
