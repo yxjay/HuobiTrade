@@ -4,10 +4,18 @@ import gzip
 import time
 import json
 import os
+import configparser
 from multiprocessing import Process
 import _thread as thread
+from common import log
 
-timeHistory = 10
+conf = configparser.ConfigParser()
+conf.read("config/trade.conf")
+
+LOG = log.get_logger()
+
+timeHistory = conf.getint("default", "saveCount")
+LOG.info(timeHistory)
 
 def nows():
     return int(time.time())
