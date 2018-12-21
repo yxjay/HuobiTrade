@@ -4,16 +4,17 @@ import gzip
 import time
 import json
 import os
-import configparser
 from multiprocessing import Process
 import _thread as thread
 from common import log
+from common import conf
+from analizer import controller
+from alarm import sendemail
 
-conf = configparser.ConfigParser()
-conf.read("config/trade.conf")
+conf = conf.getconf()
+LOG = log.getlogger()
 
-LOG = log.get_logger()
-
+sendemail("hello")
 timeHistory = conf.getint("default", "saveCount")
 LOG.info(timeHistory)
 
@@ -47,8 +48,7 @@ def subscribe(ws, tradeStr):
         #    f.write((str(nows()) + " tradeStr=" + tradeStr + " ws.status=" + str(ws.status))+"\n")
         if ws.status != 101:
             ws = create_connection("wss://api.huobi.br.com/ws")
-            with open("/tmp/huobi.log","a+") as f:
-                f.write((str(nows()) + " tradeStr=" + tradeStr + "  ws.status=" + str(ws.status))+"\n")
+            LOG.error(str(nows()) + " tradeStr=" + tradeStr + "  ws.status=" + str(ws.status))
 
         compressData=ws.recv()
         result=gzip.decompress(compressData).decode('utf-8')
