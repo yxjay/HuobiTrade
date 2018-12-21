@@ -1,0 +1,48 @@
+['market.bchusdt.kline.1min', None]
+Unhandled exception in thread started by <function subscribe at 0x2ae799f7f9d8>
+Unhandled exception in thread started by <function subscribe at 0x2ae799f7f9d8>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "main.py", line 45, in subscribe
+  File "main.py", line 45, in subscribe
+    while(1):
+    while(1):
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 293, in recv
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 293, in recv
+    opcode, data = self.recv_data()
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 310, in recv_data
+    opcode, frame = self.recv_data_frame(control_frame)
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 323, in recv_data_frame
+    opcode, data = self.recv_data()
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 310, in recv_data
+    frame = self.recv_frame()
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 357, in recv_frame
+    return self.frame_buffer.recv_frame()
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_abnf.py", line 340, in recv_frame
+    self.recv_header()
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_abnf.py", line 288, in recv_header
+    opcode, frame = self.recv_data_frame(control_frame)
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 323, in recv_data_frame
+    header = self.recv_strict(2)
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_abnf.py", line 375, in recv_strict
+    frame = self.recv_frame()
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 357, in recv_frame
+    bytes_ = self.recv(min(16384, shortage))
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 427, in _recv
+    return recv(self.sock, bufsize)
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_socket.py", line 77, in recv
+    return self.frame_buffer.recv_frame()
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_abnf.py", line 340, in recv_frame
+    raise WebSocketConnectionClosedException("socket is already closed.")
+websocket._exceptions.WebSocketConnectionClosedException: socket is already closed.
+    self.recv_header()
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_abnf.py", line 288, in recv_header
+    header = self.recv_strict(2)
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_abnf.py", line 375, in recv_strict
+    bytes_ = self.recv(min(16384, shortage))
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_core.py", line 427, in _recv
+    return recv(self.sock, bufsize)
+  File "/usr/local/lib/python3.4/dist-packages/websocket/_socket.py", line 93, in recv
+    "Connection is already closed.")
+websocket._exceptions.WebSocketConnectionClosedException: Connection is already closed.
+
